@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>七巧板动画</title>
+	<link rel="stylesheet" href="css/tangram.css">
+	<style type="text/css">
+		body{
+			background-color: #999;
+		}
+		.container{
+			width: 600px;
+			text-align: center;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>七巧板图形测试</h1>
+		<div id="boxbasic2">
+			<div class="trianglebig-90" id="one2"></div>
+			<div class="parallello" id="two2"><div></div><div></div></div>
+			<div class="trianglemedium-45" id="three2"></div>
+			<div class="square-45" id="four2"><div></div><div></div></div>
+			<div class="trianglesmall-180" id="five2"></div>
+			<div class="trianglebig" id="seven2"></div>
+			<div class="trianglesmall-270" id="eight2"></div>
+		</div>
+	</div>
+
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$("#boxbasic2").hover(function(){
+    			$(this).addClass("barca");
+    		},function(){
+    			$(this).removeClass("barca");
+    		})
+    	})
+    </script>
+</body>
+</html>
