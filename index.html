@@ -2,44 +2,102 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>七巧板动画</title>
-	<link rel="stylesheet" href="css/tangram.css">
-	<style type="text/css">
-		body{
-			background-color: #999;
-		}
-		.container{
-			width: 600px;
-			text-align: center;
-			margin: 100px auto;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/tangram.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
-<body>
 
-	<div class="container">
-		<h1>七巧板图形测试</h1>
-		<div id="boxbasic2">
-			<div class="trianglebig-90" id="one2"></div>
-			<div class="parallello" id="two2"><div></div><div></div></div>
-			<div class="trianglemedium-45" id="three2"></div>
-			<div class="square-45" id="four2"><div></div><div></div></div>
-			<div class="trianglesmall-180" id="five2"></div>
-			<div class="trianglebig" id="seven2"></div>
-			<div class="trianglesmall-270" id="eight2"></div>
-		</div>
+<body>
+	
+	<!-- 导航栏-->
+	<div id="nav">
+		<ul>
+			<li class="logo"><a href="#">FIS解决方案</a></li>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">FIS文档</a></li>
+			<li><a href="#">方案定制</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+
 	</div>
+	
+	<!-- 主体内容-->
+	<div class="container">
+		
+		<div class="row">
+			<ul class="sub_nav">
+			  <li class="active" data-id="fis-plus" data-class="" data-url="#"><a title="点击查看介绍" href="#">FIS Plus</a></li>
+			  <li data-id="yogurt" data-class="barca" data-url="#"><a title="点击查看介绍"  href="#">Yogurt</a></li>
+			  <li data-id="jello" data-class="triangle" data-url="#"><a title="点击查看介绍"  href="#">Jello</a></li>
+			  <li data-id="pure" data-class="cup" data-url="#"><a title="点击查看介绍"  href="#">pure</a></li>
+			  <li data-id="goiz" data-class="gru" data-url="#"><a title="点击查看介绍"  href="#">goiz</a></li>
+			</ul>
+		</div>
+		<div  class="row clearfix">
+			<div class="col-md-6">
+				<div id="boxbasic2">
+					<div class="trianglebig-90" id="one2"></div>
+					<div class="parallello" id="two2"><div></div><div></div></div>
+					<div class="trianglemedium-45" id="three2"></div>
+					<div class="square-45" id="four2"><div></div><div></div></div>
+					<div class="trianglesmall-180" id="five2"></div>
+					<div class="trianglebig" id="seven2"></div>
+					<div class="trianglesmall-270" id="eight2"></div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="intro">
+					<div id="fis-plus" class="text" >
+						面向自动化，减少人工管理静态资源成本和风险，全自动优化页面性能、减少服务器开销；面向定制化，包括PC、Mobile、I18n等大量个性化解决方案。
+					</div>
+
+					<div id="yogurt" class=" text hide">
+						基于Node的前后端解决方案
+					</div>
+
+					<div id="jello" class="text hide">
+						基于Java的前后端解决方案
+					</div>
+
+					<div id="pure" class="text hide">
+						纯前端的前后端解决方案
+					</div>
+
+					<div id="goiz" class="text hide">
+						基于goiz的前后端解决方案
+					</div>
+				</div>
+				<a id="more" href="#" class="btn">查看详细</a>
+			</div>
+		</div>
+		
+		<div id="footer">CopyRight © 2014  FIS Baidu |  联系我们: oak@baidu.com</div>
+	</div>
+
 
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript">
     	$(function(){
-    		$("#boxbasic2").hover(function(){
-    			$(this).addClass("barca");
-    		},function(){
-    			$(this).removeClass("barca");
+
+    		$(".sub_nav li").bind("click",function(){
+    			if($(this).hasClass("active")){
+    				return false;
+    			}
+    			var id = $(this).attr("data-id"), //方案ID，对应说明文字div id
+    				newClass= $(this).attr("data-class"), //方案七巧板动画class
+    				url = $(this).attr("data-url");   //方案具体页面url
+
+    			var oldClass = $("#boxbasic2").attr("class");
+    			$(this).addClass("active").siblings().removeClass("active");
+
+    			$(".intro .text").hide();
+    			$("#"+id).fadeIn();   		
+    			$("#boxbasic2").removeClass(oldClass).addClass(newClass);
+    			$("#more").attr("href",url);
+
     		})
     	})
     </script>
-</body>
+</body> 
 </html>
