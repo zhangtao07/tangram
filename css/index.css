@@ -50,11 +50,23 @@ body{
 
 /****************************main*************************************/
 
+.slogan{
+	color: white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+.slogan a{
+	text-decoration: none;
+	color:yellow;
+	padding: 0 5px;
+}
 .sub_nav{
-	margin:  50px auto 80px;
+	margin:  20px auto 70px;
 	list-style: none;
 	height: 30px;
-	width: 500px;
+	width: 400px;
 	text-align: center;
 	z-index: 100;
 }
